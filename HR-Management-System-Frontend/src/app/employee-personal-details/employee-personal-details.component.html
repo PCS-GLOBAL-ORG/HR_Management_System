@@ -1,0 +1,40 @@
+<h2>User Employee Personal Details</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <!-- <th>User ID</th> -->
+            <th>Employee ID</th>
+            <th>Address</th>
+            <th>Location ID</th>
+            <th>Pin Code</th>
+            <th>Phone</th>
+            <th>Alternate Phone</th>
+            <th>Gender</th>
+            <th>Country ID</th>
+            <th>Email ID</th>
+            <th>Date Of Birth</th>
+            <th>Marital Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employeeuser of employeePersonalDetails">
+            <td>{{employeeuser.employee_id}}</td>
+            <td>{{employeeuser.address}}</td>
+            <td>{{employeeuser.location_id}}</td>
+            <td>{{employeeuser.pin}}</td>
+            <td>{{employeeuser.phone}}</td>
+            <td>{{employeeuser.alternate_phone}}</td>
+            <td>{{employeeuser.gender}}</td>
+            <td>{{employeeuser.country_id}}</td>
+            <td>{{employeeuser.email_id}}</td>
+            <td>{{employeeuser.date_of_birth}}</td>
+            <td>{{employeeuser.marital_status}}</td>
+            <td>
+                <!-- <button (click)="updateEmployeePersonalDetails(employeeuser.userId)" class="btn btn-info">Update</button> -->
+                <!-- <button (click)="employeeDetails(employeeuser.userId)" class="btn btn-info" style="margin-left: 10px">View</button>
+                <button (click)="deleteEmployeeUser(employeeuser.userId)" class="btn btn-danger" style="margin-left: 10px">Delete</button> -->
+            </td>
+        </tr>
+    </tbody>
+
+</table>

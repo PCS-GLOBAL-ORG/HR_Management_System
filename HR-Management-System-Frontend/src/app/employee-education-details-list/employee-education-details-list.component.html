@@ -1,0 +1,38 @@
+<h2>Employee Education List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <!-- <th>User ID</th> -->
+            <th>Employee ID</th>
+            <th>ugQualification</th>
+            <th>ugSpecialization</th>
+            <th>ugYearOfPassout</th>
+            <th>ugUniversity</th>
+            <th>pgQualification</th>
+            <th>pgSpecialization</th>
+            <th>pgYearOfPassout</th>
+            <th>pgUniversity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employeeEducation of employees">
+            <td>{{employeeEducation.userId}}</td>
+            <td>{{employeeEducation.employeeId}}</td>
+            <td>{{employeeEducation.ugQualification}}</td>
+            <td>{{employeeEducation.ugSpecialization}}</td>
+            <td>{{employeeEducation.ugYearOfPassout}}</td>
+            <td>{{employeeEducation.ugUniversity}}</td>
+            <td>{{employeeEducation.pgQualification}}</td>
+            <td>{{employeeEducation.pgSpecialization}}</td>
+            <td>{{employeeEducation.pgYearOfPassout}}</td>
+            <td>{{employeeEducation.pgUniversity}}</td>
+            <td>
+                <!-- <button (click)="updateEmployeeUser(employeeuser.userId)" class="btn btn-info">Update</button>
+                <button (click)="employeeDetails(employeeuser.userId)" class="btn btn-info" style="margin-left: 10px">View</button>
+                <button (click)="deleteEmployeeUser(employeeuser.userId)" class="btn btn-danger" style="margin-left: 10px">Delete</button> -->
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
