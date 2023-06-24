@@ -4,111 +4,80 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.pcsgpl.dao.OfficeDetailsDao;
-import com.pcsgpl.dto.OfficeDetailsDto;
-import com.pcsgpl.entity.BaseBranch;
-import com.pcsgpl.entity.Location;
 import com.pcsgpl.entity.OfficeDetails;
-import com.pcsgpl.entity.ParentDetails;
-import com.pcsgpl.entity.Supervisor;
-
-import lombok.extern.slf4j.Slf4j;
+import com.pcsgpl.repository.EmployeeOfficeDetailsRepository;
 
 @Service
-@Slf4j
 public class OfficeDetailsServiceImpl implements OfficeDetailsService {
 	
 	@Autowired
-	private OfficeDetailsDao officeDetailsDao;
+	private EmployeeOfficeDetailsRepository officeRepository;
 	
-//	@Autowired
-//	private BaseBranchDao baseBranchDao;
-//	
-//	@Autowired
-//	private LocationDao locationDao;
-//	
-//	@Autowired
-//	private ParentDetailsDao parentDetailsDao;
-//	
-//	@Autowired 
-//	private SupervisorDao supervisorDao;
-//	
-
-
 	@Override
-	public OfficeDetails saveEmployeeOfficeDetails(OfficeDetails officeDetails) {
-		log.debug("saveEmployeeOfficeDetails in Service Layer");
-		return officeDetailsDao.save(officeDetails);
-	}
-
-	@Override
-	public String updateEmployeeOfficeDetails(OfficeDetailsDto officeDetailsDto, Integer userId) {
-		log.debug("updateEmployeeOfficeDetails in Service Layer using arguments are", userId, officeDetailsDto.toString());
-		Optional<OfficeDetails> findOfficeById = officeDetailsDao.findById(userId);
+	public String addEmployee(OfficeDetails office) {
+	
+		officeRepository.save(office);
+		return "Employee Education Details Added Successfully";
 		
-		if (findOfficeById.isPresent()) {
-			Location location = Location.builder()
-				. locationId(officeDetailsDto.getLocation().getLocationId())
-				.location(officeDetailsDto.getLocation().getLocation())
-				.build();
-			log.info(location.toString());
-			BaseBranch baseBranch = BaseBranch.builder()
-					.branchId(officeDetailsDto.getBaseBranch().getBranchId())
-					.branchName(officeDetailsDto.getBaseBranch().getBranchName())
-					.build();
-			log.info(baseBranch.toString());
-			ParentDetails parentDetails = ParentDetails.builder()
-					.parentIouId(officeDetailsDto.getParentDetails().getParentIouId())
-					.parentName(officeDetailsDto.getParentDetails().getParentName())
-					.build();
-			log.info(parentDetails.toString());
-			Supervisor supervisor = Supervisor.builder()
-					.supervisorId(officeDetailsDto.getSupervisor().getSupervisorId())
-					.supervisorName(officeDetailsDto.getSupervisor().getSupervisorName())
-					.build();
-			log.info(supervisor.toString());
-//			OfficeDetails officeDetails = OfficeDetails.builder()
-//					.employeeId(employeeId)
-//					.dateOfJoining(officeDetailsDto.getDateOfJoining())
-//					.employeeStatus(officeDetailsDto.getEmployeeStatus())
-//					.employeeType(officeDetailsDto.getEmployeeType())
-//					.gradeId(officeDetailsDto.getGradeId())
-//					.location(location)
-//					.baseBranch(baseBranch)
-//					.supervisor(supervisor)
-//					.parentDetails(parentDetails)
-//					.subIouId(officeDetailsDto.getSubIouId())
-//					.build();
-//			log.info(officeDetails.toString());
-			findOfficeById.get().setDateOfJoining(officeDetailsDto.getDateOfJoining());
-			findOfficeById.get().setEmployeeStatus(officeDetailsDto.getEmployeeStatus());
-			findOfficeById.get().setEmployeeType(officeDetailsDto.getEmployeeType());
-			findOfficeById.get().setGradeId(officeDetailsDto.getGradeId());
-//			findOfficeById.get().setLocation(location);
-//			findOfficeById.get().setBaseBranch(baseBranch);
-//			findOfficeById.get().setSupervisor(supervisor);
-//			findOfficeById.get().setParentDetails(parentDetails);
-//			findOfficeById.get().setSubIouId(officeDetailsDto.getSubIouId());
-			log.info(findOfficeById.get().toString());
-			 officeDetailsDao.save(findOfficeById.get());
-			
+//		return employeeRepository.save(employee);
+	}
+	
+	@Override
+	public String removeEmployee(int userId) {
+		
+		officeRepository.deleteById(userId);
+		return "Delete data successfully";
+	}
+	
+	@Override
+	public Optional<OfficeDetails> findEmpById(int userId) {
+		
+		Optional<OfficeDetails> emp = officeRepository.findById(userId);
+		
+		if(emp.isPresent()) {
+			return emp;
+		}else {
+			return null;
 		}
-	   return "updated Successfull";
-
-		
-		
 	}
-
+	
 	@Override
-	public List<OfficeDetails> fetchEmployees() {
-		return officeDetailsDao.findAll();
+	public List<OfficeDetails> getAllEmployeeofficeDetails() {
+		return officeRepository.findAll();
 	}
+	
+	
+	public String updateEmployeeOfficeDetailsById(Integer userId,OfficeDetails office) {
+		// TODO Auto-generated method stub
+		HttpHeaders headers=new HttpHeaders();
+		
+		OfficeDetails existEmp=officeRepository.findById(userId).orElse(null);
+		if(existEmp!=null) {
+			existEmp.setBaseBranchId(office.getBaseBranchId());
+			existEmp.setDeputedLocationId(office.getDeputedLocationId());
+			existEmp.setSupervisorId(office.getSupervisorId());
+			existEmp.setParentIouId(office.getParentIouId());
+			existEmp.setSubIouId(office.getSubIouId());
+			existEmp.setGradeId(office.getGradeId());
+			existEmp.setEmployeeStatus(office.getEmployeeStatus());
+			existEmp.setDateOfJoining(office.getDateOfJoining());
+			existEmp.setEmployeeId(office.getEmployeeId());
+			existEmp.setEmployeeType(office.getEmployeeType());
+			
 
-	@Override
-	public OfficeDetails fetchByEmployeeId(Integer userId) {
-		return officeDetailsDao.findById(userId).get();
+			
+			officeRepository.save(existEmp);
+			return "Employee Office Details updated successfully "+HttpStatus.OK;
+		}else {
+			return "Employee Id doesn't exist "+HttpStatus.NOT_FOUND;
+		}
 	}
+	
+	
 
 }
+

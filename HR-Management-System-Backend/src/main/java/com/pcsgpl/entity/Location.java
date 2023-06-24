@@ -15,16 +15,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="tpcs_location")
+@Table(name = "location_details")
 @Builder
 public class Location {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="deputed_location_id")
-	private Integer locationId;
+	@Column(name = "location_id")
+	private long locationId;
 	
-	@Column(name="location_name")
-	private String location;
+	@Column(name = "location_name")
+	private String locationName;
 
 }

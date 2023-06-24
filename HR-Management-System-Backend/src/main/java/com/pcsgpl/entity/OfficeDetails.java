@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="employee_office_details_1")
+@Table(name="employee_office_details")
 @Builder
 public class OfficeDetails {
 	
@@ -50,28 +50,20 @@ public class OfficeDetails {
 	@Column(name="employee_type")
 	private String employeeType;
 	
-//	//@Column(name="deputed_location_id")
-//	@OneToOne(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-//    @JoinColumn(name = "deputed_location_id")
-//	private Location location;
-//	
-//	//@Column(name="base_branch_id")
-//	@OneToOne(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-//	//@PrimaryKeyJoinColumn
-//    @JoinColumn(name = "base_branch_id")
-//	private BaseBranch baseBranch;
-//	
-//	//@Column(name="supervisor_id")
-//	@OneToOne(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-//    @JoinColumn(name = "supervisor_id")
-//	private Supervisor supervisor;
-//	
-//	//@Column(name="parent_iou_id")
-//	@OneToOne(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-//    @JoinColumn(name = "parent_iou_id")
-//	private ParentDetails  parentDetails;
-//	
-//	@Column(name="sub_iou_id")
-//	private Integer subIouId;
+	@Column(name="base_branch_id")
+	private Integer baseBranchId;
+	
+	@Column(name="deputed_location_id")
+	private Integer deputedLocationId;
+	
+	@Column(name="supervisor_id")
+	private Integer supervisorId;
+	
+	@Column(name="parent_iou_id")
+	private Integer parentIouId;
+	
+	@Column(name="sub_iou_id")
+	private Integer subIouId;
+	
 
 }
