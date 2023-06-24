@@ -8,6 +8,8 @@ import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { CreateEmployeePersonalDetailsComponent } from './create-employee-personal-details/create-employee-personal-details.component';
 import { UpdateEmployeePersonalDetailsComponent } from './update-employee-personal-details/update-employee-personal-details.component';
 import { EmployeeEducationDetailsListComponent } from './employee-education-details-list/employee-education-details-list.component';
+import { CreateEmployeeEducationDetailsComponent } from './create-employee-education-details/create-employee-education-details.component';
+import { CreateEmployeeOfficeDetailsComponent } from './create-employee-office-details/create-employee-office-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'employees', pathMatch: 'full'},
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'create-employee-personal-details/:empId', component: CreateEmployeePersonalDetailsComponent},
   {path: 'update-employee-personal-details/:userId', component: UpdateEmployeePersonalDetailsComponent},
   {path: 'employee-education-details', component: EmployeeEducationDetailsListComponent},
+  {path: 'create-employee-education-details/:empId', component: CreateEmployeeEducationDetailsComponent},
+  {path: 'create-employee-office-details/:empId', component: CreateEmployeeOfficeDetailsComponent}
  
 
 ];

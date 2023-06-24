@@ -11,7 +11,7 @@ export class EmployeepersonaldetailsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private baseURL = "http://localhost:8080/emp/personal";
+  private baseURL = "http://localhost:8081/emp/personal";
 
   getEmployeesList(): Observable<EmployeePersonalDetails[]>{
     return this.httpClient.get<EmployeePersonalDetails[]>(`${this.baseURL}`);
