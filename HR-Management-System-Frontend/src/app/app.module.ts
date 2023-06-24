@@ -15,7 +15,7 @@ import { CreateEmployeePersonalDetailsComponent } from './create-employee-person
 import { UpdateEmployeePersonalDetailsComponent } from './update-employee-personal-details/update-employee-personal-details.component';
 import { CreateEmployeeEducationDetailsComponent } from './create-employee-education-details/create-employee-education-details.component';
 import { EmployeeEducationDetailsListComponent } from './employee-education-details-list/employee-education-details-list.component';
-import { DropDownComponent } from './drop-down/drop-down.component';
+import { CreateEmployeeOfficeDetailsComponent } from './create-employee-office-details/create-employee-office-details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { DropDownComponent } from './drop-down/drop-down.component';
     UpdateEmployeePersonalDetailsComponent,
     EmployeeEducationDetailsListComponent,
     CreateEmployeeEducationDetailsComponent,
-    DropDownComponent,
+    CreateEmployeeOfficeDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,82 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Insert Employee Education Details</h3>
+    <div class="my-container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" class="form-control" id="employee_id"
+               [(ngModel)] = "officeDetails.employee_id" name="employee_id">
+        </div>
+    
+        <div class="form-group">
+            <label>Date Of Joining</label>
+            <input type="text" class="form-control" id="dateOfJoining"
+               [(ngModel)] = "officeDetails.dateOfJoining" name="dateOfJoining">
+        </div>
+    
+        <div class="form-group">
+            <label>Employee Status</label>
+            <input type="text" class="form-control" id="employeeStatus"
+            [(ngModel)] = "officeDetails.employeeStatus" name="employeeStatus">
+            
+        </div>
+
+        <div class="form-group">
+            <label>Employee Type</label>
+            <input type="text" class="form-control" id="employeeType"
+            [(ngModel)] = "officeDetails.employeeType" name="employeeType">
+        </div>
+    
+        <div class="form-group">
+            <label>Base Branch ID</label>
+            <select name="baseBranchIddropdown"  [(ngModel)]="officeDetails.baseBranchId">
+                <option>Select your Base Branch</option>
+                <option [ngValue]="officeDetails.branchId" *ngFor="let officeDetails of baseBranch" >{{officeDetails.branchName}}</option>
+            </select>
+        </div>
+
+        <!-- <div class="form-group">
+            <label>deputedLocationId</label>
+            <select name="pgQualificationdropdown"  [(ngModel)]="officeDetails.deputedLocationId">
+                <option>Select your pgQualification</option>
+                <option [ngValue]="officeDetails.pgQualificationId" *ngFor="let officeDetails of pgqualification" >{{officeDetails.pgQualification}}</option>
+            </select>
+        </div> -->
+
+        <div class="form-group">
+            <label>supervisorId</label>
+            <select name="supervisorIddropdown"  [(ngModel)]="officeDetails.supervisorId">
+                <option>Select your Supervisor ID</option>
+                <option [ngValue]="officeDetails.supervisorId" *ngFor="let officeDetails of supervisor" >{{officeDetails.supervisorName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>gradeId</label>
+            <select name="gradeIddropdown"  [(ngModel)]="officeDetails.gradeId">
+                <option>Select your Grade ID</option>
+                <option [ngValue]="officeDetails.gradeId" *ngFor="let officeDetails of tpcsGrade" >{{officeDetails.gradeName}}</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label>subIouId</label>
+            <select name="subIouIddropdown"  [(ngModel)]="officeDetails.subIouId">
+                <option>Select your pgUniversity</option>
+                <option [ngValue]="officeDetails.subIouId" *ngFor="let officeDetails of subIou" >{{officeDetails.subIouName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>parentIouId</label>
+            <select name="parentIouIddropdown"  [(ngModel)]="officeDetails.parentIouId">
+                <option>Select your ParentIou ID</option>
+                <option [ngValue]="officeDetails.parentIouId" *ngFor="let officeDetails of parentDetails" >{{officeDetails.parentName}}</option>
+            </select>
+        </div>
+        
+        <button class="btn btn-success" type="submit"> Submit </button>    
+    </form>
+    </div>
+    </div>
