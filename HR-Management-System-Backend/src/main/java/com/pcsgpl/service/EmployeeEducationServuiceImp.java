@@ -1,6 +1,7 @@
 package com.pcsgpl.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +13,14 @@ import org.springframework.stereotype.Service;
 import com.pcsgpl.entity.EmployeeEducation;
 import com.pcsgpl.repository.EmployeeEducationRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class EmployeeEducationServuiceImp implements EmployeeEducationService{
 
-	public static Logger logger=LoggerFactory.getLogger(EmployeeEducationService.class);
+	
+//	public static Logger logger=LoggerFactory.getLogger(EmployeeEducationService.class);
 	
 	@Autowired
 	private EmployeeEducationRepository educationRepository;
@@ -38,11 +43,11 @@ public class EmployeeEducationServuiceImp implements EmployeeEducationService{
 		return educationRepository.findAll();
 	}
 
-	public String updateEmployeeEducationById(Integer id,EmployeeEducation education) {
+	public String updateEmployeeEducationById(Integer userId,EmployeeEducation education) {
 		// TODO Auto-generated method stub
 		HttpHeaders headers=new HttpHeaders();
 		
-		EmployeeEducation existEmp=educationRepository.findById(id).orElse(null);
+		EmployeeEducation existEmp=educationRepository.findById(userId).orElse(null);
 		if(existEmp!=null) {
 			//existEmp.setEmployeeId(education.getEmployeeId());
 			existEmp.setUgQualification(education.getUgQualification());
@@ -69,5 +74,36 @@ public class EmployeeEducationServuiceImp implements EmployeeEducationService{
 		}
 	}
 
+	@Override
+	public String removeEmployee(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override
+	public Optional<EmployeeEducation> findEmpById(int userId) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+//	@Override
+//    public String removeEmployee(int userId) {
+//		
+//	    educationRepository.deleteById(userId);
+//		return "Delete data successfully";
+//
+//        }
+//    
+//    @Override
+//	public Optional<EmployeeEducation> findEmpById(int userId) {
+//		
+//		Optional<EmployeeEducation> emp = educationRepository.findById(userId);
+//		
+//		if(emp.isPresent()) {
+//			return emp;
+//		}else {
+//			return null;
+//		}
+//		
+//    }
 }

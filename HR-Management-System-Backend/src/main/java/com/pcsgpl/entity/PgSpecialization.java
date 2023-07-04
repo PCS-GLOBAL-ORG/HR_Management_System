@@ -27,4 +27,20 @@ public class PgSpecialization {
 	@Column(name="pg_specialization")
 	@NotNull(message = "Please enter pg specialization name")
 	private String pgSpecialization;
+
+	public int getPgSpecializationId() {
+		return pgSpecializationId;
+	}
+
+	public void setPgSpecializationId(int pgSpecializationId) {
+		this.pgSpecializationId = pgSpecializationId;
+	}
+
+	public String getPgSpecialization() {
+		return pgSpecialization;
+	}
+
+	public void setPgSpecialization(String pgSpecialization) {
+		this.pgSpecialization = pgSpecialization;
+	}
 }

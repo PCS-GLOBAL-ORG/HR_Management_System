@@ -30,6 +30,22 @@ public class UgQualification {
 	@Column(name="ug_qualification")
 	@NotNull(message = "Please enter ug qualification name")
 	private String ugQualification;
+
+	public int getUgQualificationId() {
+		return ugQualificationId;
+	}
+
+	public void setUgQualificationId(int ugQualificationId) {
+		this.ugQualificationId = ugQualificationId;
+	}
+
+	public String getUgQualification() {
+		return ugQualification;
+	}
+
+	public void setUgQualification(String ugQualification) {
+		this.ugQualification = ugQualification;
+	}
 	
 
 

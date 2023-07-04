@@ -27,4 +27,20 @@ public class ParentDetails {
 	@Column(name="parentName")
 	private String parentName;
 
+	public Integer getParentIouId() {
+		return parentIouId;
+	}
+
+	public void setParentIouId(Integer parentIouId) {
+		this.parentIouId = parentIouId;
+	}
+
+	public String getParentName() {
+		return parentName;
+	}
+
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
+
 }

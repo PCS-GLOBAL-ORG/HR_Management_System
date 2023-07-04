@@ -27,4 +27,22 @@ public class PgUniversity {
 	@Column(name="pg_university")
 	@NotNull(message = "Please enter pg university name")
 	private String pgUniversity;
+
+	public int getPgUniversityId() {
+		return pgUniversityId;
+	}
+
+	public void setPgUniversityId(int pgUniversityId) {
+		this.pgUniversityId = pgUniversityId;
+	}
+
+	public String getPgUniversity() {
+		return pgUniversity;
+	}
+
+	public void setPgUniversity(String pgUniversity) {
+		this.pgUniversity = pgUniversity;
+	}
+	
+	
 }

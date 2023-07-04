@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pcsgpl.entity.CountryDetails;
 import com.pcsgpl.entity.EmployeePersonalDetails;
+import com.pcsgpl.exception.ResourceNotFoundException;
+import com.pcsgpl.repository.CountryDetailsRepository;
+import com.pcsgpl.repository.EmployeePersonalDetailsRepository;
 import com.pcsgpl.service.EmployeePersonalDetailsService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,6 +28,12 @@ import com.pcsgpl.service.EmployeePersonalDetailsService;
 public class EmployeePersonalDetailsController {
 	@Autowired
 	private EmployeePersonalDetailsService Service;
+	
+	@Autowired
+	private CountryDetailsRepository countryRepository;
+	
+	@Autowired
+	private EmployeePersonalDetailsRepository empDetailsRepo;
 
 	@GetMapping("/personal")
 	public List<EmployeePersonalDetails> getAllEmployeePesonalDetails() {
@@ -47,6 +57,18 @@ public class EmployeePersonalDetailsController {
 	       Service.deleteEmployeePersonalDetailsById(userId);
 	       System.out.println("employee record deleted sucessfully");
 		}
+	
+	@GetMapping("/personal/{userId}")
+	public ResponseEntity<EmployeePersonalDetails> getPersonalDetailsById(@PathVariable int userId, @RequestBody EmployeePersonalDetails employeePersonalDetails){
+		EmployeePersonalDetails employee = empDetailsRepo.findById(userId)
+				.orElseThrow(()-> new ResourceNotFoundException("Employee Personal Details Not Found" + userId));
+		return ResponseEntity.ok(employee);
+	}
+	
+	@GetMapping("/countryDetails")
+	public List<CountryDetails> getAllcountryDetails(){
+		return countryRepository.findAll();
+	}
 }
 
 

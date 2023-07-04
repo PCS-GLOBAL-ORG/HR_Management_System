@@ -27,4 +27,20 @@ public class SubIou {
 	@Column(name="sub_iou_name")
 	private String subIouName;
 
+	public Integer getSubIouId() {
+		return subIouId;
+	}
+
+	public void setSubIouId(Integer subIouId) {
+		this.subIouId = subIouId;
+	}
+
+	public String getSubIouName() {
+		return subIouName;
+	}
+
+	public void setSubIouName(String subIouName) {
+		this.subIouName = subIouName;
+	}
+
 }

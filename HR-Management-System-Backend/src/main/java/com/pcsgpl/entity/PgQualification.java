@@ -26,4 +26,20 @@ public class PgQualification {
 	@Column(name="pg_qualification")
 	@NotNull(message = "Please enter pg qualification name")
 	private String pgQualification;
+
+	public int getPgQualificationId() {
+		return pgQualificationId;
+	}
+
+	public void setPgQualificationId(int pgQualificationId) {
+		this.pgQualificationId = pgQualificationId;
+	}
+
+	public String getPgQualification() {
+		return pgQualification;
+	}
+
+	public void setPgQualification(String pgQualification) {
+		this.pgQualification = pgQualification;
+	}
 }

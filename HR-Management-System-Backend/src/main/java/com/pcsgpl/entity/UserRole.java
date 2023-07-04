@@ -1,7 +1,5 @@
 package com.pcsgpl.entity;
 
-import org.springframework.context.annotation.Role;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +26,22 @@ public class UserRole {
 	
 	@Column(name = "user_role")
 	private String userRole;
+
+	public int getUserRoleID() {
+		return userRoleID;
+	}
+
+	public void setUserRoleID(int userRoleID) {
+		this.userRoleID = userRoleID;
+	}
+
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 	
 		
 	}

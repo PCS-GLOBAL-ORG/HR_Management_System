@@ -1,14 +1,10 @@
  package com.pcsgpl.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -57,6 +53,86 @@ public class EmployeeEducation {
 	
 	@Column(name="pg_university")
 	private int pgUniversity;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public int getUgQualification() {
+		return ugQualification;
+	}
+
+	public void setUgQualification(int ugQualification) {
+		this.ugQualification = ugQualification;
+	}
+
+	public int getUgSpecialization() {
+		return ugSpecialization;
+	}
+
+	public void setUgSpecialization(int ugSpecialization) {
+		this.ugSpecialization = ugSpecialization;
+	}
+
+	public String getUgYearOfPassout() {
+		return ugYearOfPassout;
+	}
+
+	public void setUgYearOfPassout(String ugYearOfPassout) {
+		this.ugYearOfPassout = ugYearOfPassout;
+	}
+
+	public int getUgUniversity() {
+		return ugUniversity;
+	}
+
+	public void setUgUniversity(int ugUniversity) {
+		this.ugUniversity = ugUniversity;
+	}
+
+	public int getPgQualification() {
+		return pgQualification;
+	}
+
+	public void setPgQualification(int pgQualification) {
+		this.pgQualification = pgQualification;
+	}
+
+	public int getPgSpecialization() {
+		return pgSpecialization;
+	}
+
+	public void setPgSpecialization(int pgSpecialization) {
+		this.pgSpecialization = pgSpecialization;
+	}
+
+	public String getPgYearOfPassout() {
+		return pgYearOfPassout;
+	}
+
+	public void setPgYearOfPassout(String pgYearOfPassout) {
+		this.pgYearOfPassout = pgYearOfPassout;
+	}
+
+	public int getPgUniversity() {
+		return pgUniversity;
+	}
+
+	public void setPgUniversity(int pgUniversity) {
+		this.pgUniversity = pgUniversity;
+	}
 	
 	
 //	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

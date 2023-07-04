@@ -1,6 +1,5 @@
 package com.pcsgpl.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,38 +11,35 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//Long
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="tpcs_location")
 @Builder
-@Data
-public class TpcsLocation {
+@Entity
+@Table(name = "Tpcs_Grade")
+public class TpcsGrade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="deputed_location_id")
-	private Integer locationId;
+	@Column(name="grade_Id")
+	private Integer gradeId;
 	
-	@Column(name="location_name")
-	private String location;
+	@Column(name="grade")
+	private String gradeName;
 
-	public Integer getLocationId() {
-		return locationId;
+	public Integer getGradeId() {
+		return gradeId;
 	}
 
-	public void setLocationId(Integer locationId) {
-		this.locationId = locationId;
+	public void setGradeId(Integer gradeId) {
+		this.gradeId = gradeId;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getGradeName() {
+		return gradeName;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
 	}
-
-
 }

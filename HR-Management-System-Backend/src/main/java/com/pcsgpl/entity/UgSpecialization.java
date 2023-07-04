@@ -27,4 +27,22 @@ public class UgSpecialization {
 	@Column(name="ug_specialization")
 	@NotNull(message = "Please enter ug specialization name")
 	private String ugSpecialization;
+
+	public int getUgSpecializationId() {
+		return ugSpecializationId;
+	}
+
+	public void setUgSpecializationId(int ugSpecializationId) {
+		this.ugSpecializationId = ugSpecializationId;
+	}
+
+	public String getUgSpecialization() {
+		return ugSpecialization;
+	}
+
+	public void setUgSpecialization(String ugSpecialization) {
+		this.ugSpecialization = ugSpecialization;
+	}
+	
+	
 }

@@ -28,4 +28,26 @@ public class UgUniversity {
 	@Column(name="ug_university")
 	@NotNull(message = "Please enter ug university name")
 	private String ugUniversity;
+
+
+	public int getUgUniversityId() {
+		return ugUniversityId;
+	}
+
+
+	public void setUgUniversityId(int ugUniversityId) {
+		this.ugUniversityId = ugUniversityId;
+	}
+
+
+	public String getUgUniversity() {
+		return ugUniversity;
+	}
+
+
+	public void setUgUniversity(String ugUniversity) {
+		this.ugUniversity = ugUniversity;
+	}
+	
+	
 }

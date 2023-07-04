@@ -27,4 +27,20 @@ public class Supervisor {
 	@Column(name="supervisor_name")
 	private String supervisorName;
 
+	public Integer getSupervisorId() {
+		return supervisorId;
+	}
+
+	public void setSupervisorId(Integer supervisorId) {
+		this.supervisorId = supervisorId;
+	}
+
+	public String getSupervisorName() {
+		return supervisorName;
+	}
+
+	public void setSupervisorName(String supervisorName) {
+		this.supervisorName = supervisorName;
+	}
+
 }
