@@ -9,7 +9,7 @@ import { EmployeeEducationDetails } from './employee-education-details';
 export class EmployeeducationdetailsService {
   constructor(private httpClient: HttpClient) { }
 
-  private baseURL = "http://localhost:8080/api/education";
+  private baseURL = "http://localhost:8081/api/education";
 
   getEmployeesList(): Observable<EmployeeEducationDetails[]>{
     return this.httpClient.get<EmployeeEducationDetails[]>(`${this.baseURL}`);

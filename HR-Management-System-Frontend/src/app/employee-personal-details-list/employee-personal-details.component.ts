@@ -24,15 +24,16 @@ export class EmployeePersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.empId = this.route.snapshot.params['empId'];
     console.log("this is employeeId" + this.empId);
-    this.Personal.employee_id = this.empId;
-    
+    // this.Personal.employee_id = this.empId;
+
+    this.getEmployeePersonalDetails();
   }
 
-  // private getEmployeePersonalDetails(){
-  //   this.service.getEmployeesList().subscribe(data => {
-  //     this.employeePersonalDetails = data;
-  //   })
-  // }
+  private getEmployeePersonalDetails(){
+    this.service.getEmployeesList().subscribe(data => {
+      this.employeePersonalDetails = data;
+    })
+  }
 
   // updateEmployeePersonalDetails(userId: number){
   //   this.router.navigate(['update-employee-personal-details', userId]);

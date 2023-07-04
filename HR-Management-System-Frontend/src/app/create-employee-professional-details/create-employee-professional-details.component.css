@@ -1,0 +1,29 @@
+.form-group{
+    background-color: #ffffff;
+      width: 500px;
+      height: 100px;
+}
+
+.form{
+    background-color: #5a9eeb;
+    div {
+        background-color: #5a9eeb;
+          padding: 2rem;
+          font-size: 1.25rem;
+        }
+      }
+
+/* input[type="radio"]{
+   float: left;
+   width: auto;
+   margin-left: 3em;
+} */
+
+.checkbox-tools {
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	break-before: always;
+	margin: 0 0 3em 0;
+}

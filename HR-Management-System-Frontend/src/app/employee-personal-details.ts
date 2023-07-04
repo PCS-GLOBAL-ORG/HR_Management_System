@@ -21,7 +21,7 @@ export class EmployeePersonalDetails {
 	 gender : string;
 	
 	
-	 country_id : number;
+	 country_id : Number|String = 'India';
 	
 	
 	 email_id : string;

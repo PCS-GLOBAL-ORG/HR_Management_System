@@ -1,1 +1,77 @@
-<p>create-employee-education-details works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3>Insert Employee Education Details</h3>
+    <div class="my-container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" class="form-control" id="employeeId"
+               [(ngModel)] = "education.employeeId" name="employeeId">
+        </div>
+    
+        <div class="form-group">
+            <label>UG Qualification</label><br/>
+            <select name="ugQualificationdropdown"  [(ngModel)]="education.ugQualification">
+                <option>Select your ugQualification</option>
+                <option [ngValue]="qualification.ugQualificationId" *ngFor="let qualification of ugqualification" >{{qualification.ugQualification}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label>UG Specialization</label><br/>
+
+            <select name="ugSpecializationdropdown"  [(ngModel)]="education.ugSpecialization">
+                <option>Select your ugSpecialization</option>
+                <option [ngValue]="qualification.ugSpecializationId" *ngFor="let qualification of ugspecialization" >{{qualification.ugSpecialization}}</option>
+            </select>
+            
+        </div>
+
+        <div class="form-group">
+            <label>UG Year Of Passout</label>
+            <input type="date" class="form-control" id="ugYearOfPassout"
+               [(ngModel)] = "education.ugYearOfPassout" name="ugYearOfPassout">
+        </div>
+    
+        <div class="form-group">
+            <label>UG University</label><br/>
+            <select name="ugUniversitydropdown"  [(ngModel)]="education.ugUniversity">
+                <option>Select your ugUniversity</option>
+                <option [ngValue]="qualification.ugUniversityId" *ngFor="let qualification of uguniversity" >{{qualification.ugUniversity}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>PG Qualification</label><br/>
+            <select name="pgQualificationdropdown"  [(ngModel)]="education.pgQualification">
+                <option>Select your pgQualification</option>
+                <option [ngValue]="qualification.pgQualificationId" *ngFor="let qualification of pgqualification" >{{qualification.pgQualification}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>PG Specialization</label><br/>
+            <select name="pgSpecializationdropdown"  [(ngModel)]="education.pgSpecialization">
+                <option>Select your pgSpecialization</option>
+                <option [ngValue]="qualification.pgSpecializationId" *ngFor="let qualification of pgspecialization" >{{qualification.pgSpecialization}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>PG Year Of Passout</label>
+            <input type="date" class="form-control" id="pgYearOfPassout"
+               [(ngModel)] = "education.pgYearOfPassout" name="pgYearOfPassout">
+        </div>
+
+
+        <div class="form-group">
+            <label>PG University</label><br/>
+            <select name="pgUniversitydropdown"  [(ngModel)]="education.pgUniversity">
+                <option>Select your pgUniversity</option>
+                <option [ngValue]="qualification.pgUniversityId" *ngFor="let qualification of pguniversity" >{{qualification.pgUniversity}}</option>
+            </select>
+        </div>
+        
+        <button class="btn btn-success" type="submit"> Submit </button>    
+    </form>
+    </div>
+    </div>

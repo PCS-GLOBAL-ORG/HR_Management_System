@@ -1,0 +1,14 @@
+.form-group{
+    background-color: #ffffff;
+      width: 500px;
+      height: 75px;
+}
+
+.form{
+    background-color: #5a9eeb;
+    div {
+        background-color: #5a9eeb;
+          padding: 2rem;
+          font-size: 1.25rem;
+        }
+      }

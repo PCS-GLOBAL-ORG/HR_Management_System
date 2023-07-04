@@ -11,7 +11,8 @@ export class EmployeepersonaldetailsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private baseURL = "http://localhost:8080/emp/personal";
+  private baseURL = "http://localhost:8081/emp/personal";
+  private baseURL1 = "http://localhost:8081/emp/countryDetails";
 
   getEmployeesList(): Observable<EmployeePersonalDetails[]>{
     return this.httpClient.get<EmployeePersonalDetails[]>(`${this.baseURL}`);
@@ -31,5 +32,9 @@ export class EmployeepersonaldetailsService {
 
   deleteEmployeePersonalDetails(userId: number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${userId}`);
+  }
+
+  getCountry(): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.baseURL1);
   }
 }

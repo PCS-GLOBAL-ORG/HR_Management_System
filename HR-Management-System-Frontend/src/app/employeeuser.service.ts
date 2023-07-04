@@ -9,8 +9,8 @@ import { UserRoleMaster } from './user-role-master';
 })
 export class EmployeeuserService {
 
-  private baseURL = "http://localhost:8086/emp/employees";
-  private userURL = "http://localhost:8086/role/roles";
+  private baseURL = "http://localhost:8081/emp/employees";
+ // private userURL = "http://localhost:8081/role/roles";
 
 
   constructor(private httpClient: HttpClient) { }
@@ -39,8 +39,12 @@ export class EmployeeuserService {
   //   return this.httpClient.get<UserRoleMaster[]>(`${this.userURL}`);
   // }
 
-  getAllUserRole(){
-    return this.httpClient.get<any[]>(this.userURL);
-  }
+  // getAllUserRole(){
+  //   return this.httpClient.get<any[]>(this.userURL);
+  // }
+ // getUserRoles(){
+ //   return this.httpClient.get<Employeeuser[]>(this.baseURL);
+ // }
 
 }
+

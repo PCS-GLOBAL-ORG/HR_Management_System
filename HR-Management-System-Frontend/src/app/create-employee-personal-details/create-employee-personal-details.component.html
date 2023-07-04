@@ -5,68 +5,102 @@
         <div class="form-group">
             <label>Employee ID</label>
             <input type="text" class="form-control" id="employee_id"
-               [(ngModel)] = "personal.employee_id" name="employee_id">
+               [(ngModel)] = "empId" readonly="true" name="employee_id">
         </div>
     
         <div class="form-group">
-            <label>address</label>
-            <input type="text" class="form-control" id="address"
-               [(ngModel)] = "personal.address" name="address">
+            <label>Address</label>
+            <textarea type="text" class="form-control" id="address"
+               [(ngModel)] = "personal.address" name="address"></textarea>
+        </div>
+
+        <!-- <div class="form-group">
+            <label>Country Name</label>
+            <input type="text" class="form-control" id="country_id"
+               [(ngModel)] = "personal.country_id" name="country_id">
+        </div> -->
+        <div class="form-group">
+            <label>Country Name</label><br/>
+            <select name="country_id"  [(ngModel)]="personal.country_id">
+                <option>Select your Country</option>
+                <option [ngValue]="Country.countryCode" *ngFor="let Country of country" >{{Country.countryName}}</option>
+            </select>
+        </div>
+    
+        <div class="form-group" style="padding-top: 10px">
+            <label>Location/City</label><br/>
+           
+            <select name="locationdropdown"  [(ngModel)]="personal.location_id">
+                <option>Select your location</option>
+                <option [ngValue]="location.locationId" *ngFor="let location of empLocation" >{{location.locationName}}</option>
+            </select>
+        
+            <!-- <input type="text" class="form-control" id="location_id"
+               [(ngModel)] = "personal.location_id" name="location_id"> -->
         </div>
     
         <div class="form-group">
-            <label>location_id</label>
-            <input type="text" class="form-control" id="location_id"
-               [(ngModel)] = "personal.location_id" name="location_id">
-        </div>
-    
-        <div class="form-group">
-            <label>pin</label>
-            <input type="password" class="form-control" id="pin"
+            <label>Pin</label>
+            <input type="text" class="form-control" id="pin"
                [(ngModel)] = "personal.pin" name="pin">
         </div>
     
         <div class="form-group">
-            <label>phone</label>
-            <input type="drop-down" class="form-control" id="phone"
+            <label>Phone</label>
+            <input type="text" class="form-control" id="phone"
                [(ngModel)] = "personal.phone" name="phone">
         </div>
 
         <div class="form-group">
-            <label>alternate_phone</label>
+            <label>Alternate Phone</label>
             <input type="text" class="form-control" id="alternate_phone"
                [(ngModel)] = "personal.alternate_phone" name="alternate_phone">
         </div>
 
-        <div class="form-group">
-            <label>gender</label>
+        <!-- <div class="form-group">
+            <label>Gender</label>
             <input type="text" class="form-control" id="gender"
                [(ngModel)] = "personal.gender" name="gender">
-        </div>
+        </div> -->
 
-        <div class="form-group">
-            <label>country_id</label>
-            <input type="text" class="form-control" id="country_id"
-               [(ngModel)] = "personal.country_id" name="country_id">
+        <div>
+            <div class="form-group">
+            <!-- //dropdown with hardcoded -->
+            <label for="gender">Gender</label><br/>
+            <select id="gender" name="gender" [(ngModel)]="personal.gender">
+              <option *ngFor="let gender of employeeGender" [value]="gender.id">{{ gender.name }}</option>
+            </select>
         </div>
+          </div>
 
+        
         <div class="form-group">
-            <label>email_id</label>
+            <label>Email ID</label>
             <input type="text" class="form-control" id="email_id"
                [(ngModel)] = "personal.email_id" name="email_id">
         </div>
 
         <div class="form-group">
-            <label>date_of_birth</label>
-            <input type="text" class="form-control" id="date_of_birth"
+            <label>Date Of Birth</label>
+            <input type="date" class="form-control" id="date_of_birth"
                [(ngModel)] = "personal.date_of_birth" name="date_of_birth">
         </div>
 
-        <div class="form-group">
-            <label>marital_status</label>
+        <!-- <div class="form-group">
+            <label>Marital Status</label>
             <input type="text" class="form-control" id="marital_status"
                [(ngModel)] = "personal.marital_status" name="marital_status">
-        </div>
+        </div> -->
+
+        <div>
+            <div class="form-group">
+            <!-- //dropdown with hardcoded -->
+            <label for="marital_status">Marital Status</label><br/>
+            <select id="marital_status" name="marital_status" [(ngModel)]="personal.marital_status">
+              <option *ngFor="let maritalStatus of employeeMaritalStatus" [value]="maritalStatus.id">{{ maritalStatus.name }}</option>
+            </select>
+            </div>
+          </div>
         
         <button class="btn btn-success" type="submit"> Submit </button>    
     </form>

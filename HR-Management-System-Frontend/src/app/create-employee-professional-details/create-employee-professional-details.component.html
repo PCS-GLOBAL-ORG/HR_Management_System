@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Insert Employee Professional Details</h3>
+    <div class="my-container">
+    <form (ngSubmit)="onSubmit()">
+
+
+     <!-- radio button for FRESHER & EXPERIENCED    -->
+    <div class="checkbox-tools">
+        <div>
+            <input type="radio" name="professional" value="fresher" [checked]="isFresher" (change)="disableFields()"> Fresher&nbsp;
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+            <input type="radio" name="professional" value="experienced" [checked]="!isFresher" (change)="enableFields()"> Experienced&nbsp;
+        </div> 
+    </div>
+
+
+
+        <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" class="form-control" id="employee_id"
+               [(ngModel)] = "professional.employee_id" name="employee_id">
+        </div>
+    
+        <div class="form-group">
+            <label>Employer Name</label>
+            <input type="text" class="form-control" id="employment_name" [disabled]="isFresher"
+               [(ngModel)] = "professional.employment_name" name="employment_name">
+        </div>
+
+        <div class="form-group">
+            <label>Employment Duration</label>
+            <input type="text" class="form-control" id="employment_duration" [disabled]="isFresher"
+               [(ngModel)] = "professional.employment_duration" name="employment_duration">
+        </div>
+    
+        <div class="form-group">
+            <label>Joining Date</label>
+            <input type="date" class="form-control" id="joining_date" [disabled]="isFresher"
+               [(ngModel)] = "professional.joining_date" name="joining_date">
+        </div>
+
+        <div class="form-group">
+            <label>Release Date</label>
+            <input type="date" class="form-control" id="release_date" [disabled]="isFresher"
+               [(ngModel)] = "professional.release_date" name="release_date">
+        </div>
+    
+        <button class="btn btn-success" type="submit"> Submit </button>    
+    </form>
+    </div>
+    </div>
